@@ -2,8 +2,23 @@
 <Symbolconfiguration xmlns="http://www.3s-software.com/schemas/Symbolconfiguration.xsd">
   <Header>
     <Version>3.5.14.0</Version>
-    <SymbolConfigObject version="4.8.0.0" runtimeid="3.5.21.50" libversion="4.6.0.0" compiler="3.5.21.50" lmm="3.5.21.50" profile="CODESYS V3.5 SP21 Patch 5+" settings="SupportOPCUA, XmlIncludeNodeFlags, XmlIncludeComments, LayoutCalculator=CompatibilityClientSideLayoutCalculator" />
+    <SymbolConfigObject version="4.7.0.0" runtimeid="3.5.21.50" libversion="4.6.0.0" compiler="3.5.21.50" lmm="3.5.21.50" profile="CODESYS V3.5 SP21 Patch 5+" settings="SupportOPCUA, XmlIncludeNodeFlags, XmlIncludeComments, LayoutCalculator=CompatibilityClientSideLayoutCalculator" />
     <ProjectInfo name="Wodór" devicename="WAGO_Compact_Controller_100" appname="Application" />
   </Header>
-  <TypeList />
+  <TypeList>
+    <TypeSimple name="T_BOOL" size="1" swapsize="0" typeclass="Bool" iecname="BOOL" />
+    <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
+    <TypeSimple name="T_STRING_50_" size="51" swapsize="0" typeclass="String" iecname="STRING(50)" />
+  </TypeList>
+  <NodeList>
+    <Node name="Application" nodeflags="NodeTypeBranchNode BranchNodeApplicationName">
+      <Node name="GVL_HMI" nodeflags="NodeTypeBranchNode SigTypeGvl">
+        <Node name="AOCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_REAL" access="ReadWrite" />
+        <Node name="CurrentStateText" nodeflags="SigTypeGvl ExportedVariable" type="T_STRING_50_" access="ReadWrite" />
+        <Node name="ResetCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="StartCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="StopCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite" />
+      </Node>
+    </Node>
+  </NodeList>
 </Symbolconfiguration>
