@@ -7,6 +7,7 @@
   </Header>
   <TypeList>
     <TypeSimple name="T_BOOL" size="1" swapsize="0" typeclass="Bool" iecname="BOOL" />
+    <TypeSimple name="T_INT" size="2" swapsize="2" typeclass="Int" iecname="INT" />
     <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
     <TypeSimple name="T_STRING_50_" size="51" swapsize="0" typeclass="String" iecname="STRING(50)" />
   </TypeList>
@@ -15,9 +16,40 @@
       <Node name="GVL_HMI" nodeflags="NodeTypeBranchNode SigTypeGvl">
         <Node name="AOCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_REAL" access="ReadWrite" />
         <Node name="CurrentStateText" nodeflags="SigTypeGvl ExportedVariable" type="T_STRING_50_" access="ReadWrite" />
+        <Node name="Heater" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite">
+          <Comment> Stan ikony Grzałki</Comment>
+        </Node>
+        <Node name="HeaterHand" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite">
+          <Comment>  Tryb Auto-Reka dla Grzałki</Comment>
+        </Node>
+        <Node name="HeaterHandButton" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite">
+          <Comment> ON OFF Z Grafiki </Comment>
+        </Node>
+        <Node name="HeaterTempMax" nodeflags="SigTypeGvl ExportedVariable" type="T_REAL" access="ReadWrite">
+          <Comment> Maksymalna temperatura dla wyłączenia się grzałki</Comment>
+        </Node>
+        <Node name="HeaterTempMin" nodeflags="SigTypeGvl ExportedVariable" type="T_REAL" access="ReadWrite">
+          <Comment> Minimalna temperatura dla załączenia się grzałki</Comment>
+        </Node>
+        <Node name="HMI_Detector_Icon" nodeflags="SigTypeGvl ExportedVariable" type="T_INT" access="ReadWrite">
+          <Comment> Stan ikony Detektora: -&gt; 0 - Brak alarmow, 1 - 1-szy próg detekcji, 2 -&gt; 2-gi próg detekcji</Comment>
+        </Node>
+        <Node name="NearHeaterTemperature" nodeflags="SigTypeGvl ExportedVariable" type="T_REAL" access="ReadWrite">
+          <Comment> Temperatura przy Grzałce</Comment>
+        </Node>
         <Node name="ResetCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite" />
         <Node name="StartCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite" />
         <Node name="StopCommand" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite" />
+      </Node>
+      <Node name="GVL_IO" nodeflags="NodeTypeBranchNode SigTypeGvl">
+        <Node name="ChlorDetectorStage1" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite">
+          <Comment> ===============================================================
+ WEJŚCIA CYFROWE
+ =======================
+ Detekcja chloru
+ =======================</Comment>
+        </Node>
+        <Node name="ChlorDetectorStage2" nodeflags="SigTypeGvl ExportedVariable" type="T_BOOL" access="ReadWrite" />
       </Node>
     </Node>
   </NodeList>
